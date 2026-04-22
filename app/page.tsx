@@ -1,17 +1,33 @@
-import { getProjects } from "@/sanity/sanity.util";
+import Hero from "@/components/Hero";
+import About from "./about/page";
+import Projects from "./projects/page";
+import Contact from "./contact/page";
 
 export default async function Home() {
 
-  const projects = await getProjects(); 
-
-
   return (
-    <div>
-      {projects.map((project) =>
-      <div key={project._id}>
-        {project.name}
-      </div>
-      )}
-    </div>
+    <main>
+      {/* Hero */}
+      <section id="hero"     className="min-h-screen flex items-center justify-center px-8">
+        <Hero/>
+      </section>
+
+      {/* About */}
+      <section id="about"    className="min-h-screen flex items-center px-8">
+        <About/>
+      </section>
+
+      {/* Projects */}
+       <section id="projects" className="min-h-screen px-8 py-20">
+        <Projects/>
+      </section>
+      
+      {/* Contact */}
+      <section id="contact"  className="min-h-screen flex items-center px-8">
+        <Contact/>
+      </section>
+
+    </main>
   );
 }
+
