@@ -6,7 +6,11 @@ export type Project = {
     _createdAt: Date;
     name: string;
     slug: string;
-    image: string;
-    url: string;
-    content:PortableTextBlock[]; //how sanity stores rich texts
+    description: string;
+    image?: string;
+    techStack?: string[]; //PortableTextBlock[]; //how sanity stores rich texts
+    liveUrl?: string;
+    githubUrl?: string;
+    featured?: boolean;
+    order?: number;
 }

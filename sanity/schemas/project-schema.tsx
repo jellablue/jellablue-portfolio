@@ -1,65 +1,67 @@
+import { title } from "process";
+
 const project = {
+  name: "project",
+  title: "Projects",
+  type: "document",
 
-    name: 'project',
-
-    title: 'Projects',
-
-    type: 'document',
-
-    fields: [
+  fields: [
+    {
+      name: "name",
+      title: "Name",
+      type: "string",
+    },
+    {
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: { source: "name" },
+    },
+    {
+        name: 'description',
+        title: "Short Description",
+        type: 'text',
+    },
+    {
+      name: "image",
+      title: "Image",
+      type: "image",
+      options: { hotspot: true },
+      fields: [
         {
-            name: 'name',
-
-            title: 'Name',
-
-            type: 'string',
+          name: "alt",
+          title: "Alt",
+          type: "string",
         },
-        {
-            name: 'slug',
-
-            title: 'Slug',
-
-            type: 'slug',
-
-            options: { source: 'name'}
-        },
-        {
-            name: 'image',
-
-            title: 'Image',
-
-            type: 'image',
-
-            options: { hotspot: true },
-
-            fields: [
-                {
-                    name: 'alt',
-
-                    title: 'Alt',
-
-                    type: 'string'
-                }
-
-            ]
-        },
-        {
-            name: 'url',
-
-            title: 'URL',
-
-            type: 'url'
-        },
-        {
-            name: 'content',
-
-            title: 'Content',
-
-            type: 'array',
-
-            of: [{ type: 'block' }], //instead of using strings for text, we use block content called "portable texts"
-        },
-    ],
+      ],
+    },
+    {   
+        name: 'techStack',
+        title: 'Tech Stack',
+        type: 'array',
+        of: [{ type: 'string'}],
+    },
+    {
+      name: "liveUrl",
+      title: "Live URL",
+      type: "url",
+    },
+    {
+      name: "githubUrl",
+      title: "Github URL",
+      type: "url",
+    },
+    {
+      name: 'featured',
+      title: 'Featured?',
+      type: 'boolean'
+    },
+    {
+        name: 'order',
+        title: 'Display Order',
+        type: 'number',
+    },
+  ],
 };
 
 export default project;
