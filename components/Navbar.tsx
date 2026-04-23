@@ -1,30 +1,27 @@
-'use client';
-
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+'use client'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 const links = [
-    { href: '/', label: 'Home'},
-    { href: '/about', label: 'About'},
-    { href: '/projects', label: 'Projects'},
-    { href: '/contact', label: 'Contact'},
+  { href: '/about',    label: 'about' },
+  { href: '/projects', label: 'projects' },
+  { href: '/contact',  label: 'connect' },
 ]
 
 export default function Navbar() {
-    const pathname = usePathname();
-
-    return(
-       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-5">
-      <Link href="/" className="text-sm font-semibold tracking-tight text-foreground">
-        yourname  {/* replace with your name */}
+  const pathname = usePathname()
+  return (
+    <nav className="flex items-center justify-between px-8 py-6">
+      <Link href="/" style={{ fontFamily: 'var(--font-display)' }} className="font-display text-2xl">
+        jellablue
       </Link>
       <ul className="flex items-center gap-6">
         {links.map(({ href, label }) => (
           <li key={href}>
             <Link
               href={href}
-              className={`text-sm transition-colors hover:text-foreground ${
-                pathname === href ? 'text-foreground font-medium' : 'text-muted-foreground'
+              className={`font-sans text-sm tracking-wide transition-opacity hover:opacity-60 ${
+                pathname === href ? 'opacity-100' : 'opacity-80'
               }`}
             >
               {label}
@@ -33,5 +30,5 @@ export default function Navbar() {
         ))}
       </ul>
     </nav>
-    )
+  )
 }
