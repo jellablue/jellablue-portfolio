@@ -11,16 +11,16 @@ const links = [
 export default function Navbar() {
   const pathname = usePathname()
   return (
-    <nav className="flex items-center justify-between px-8 py-6">
-      <Link href="/" style={{ fontFamily: 'var(--font-display)' }} className="font-display text-2xl">
+    <nav className="flex items-center justify-between px-10 md:px-14 py-10 md:py-12">
+      <Link href="/" style={{ fontFamily: 'var(--font-display)' }} className="font-display text-4xl md:text-4xl leading-none">
         jellablue
       </Link>
-      <ul className="flex items-center gap-6">
+      <ul className="flex items-center gap-6 md:gap-8">
         {links.map(({ href, label }) => (
           <li key={href}>
             <Link
               href={href}
-              className={`font-sans text-sm tracking-wide transition-opacity hover:opacity-60 ${
+              className={`font-sans text-xl tracking-wide transition-opacity hover:opacity-60 ${
                 pathname === href ? 'opacity-100' : 'opacity-80'
               }`}
             >

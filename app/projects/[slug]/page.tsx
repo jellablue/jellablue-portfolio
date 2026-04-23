@@ -18,9 +18,9 @@ export default async function ProjectDetail({ params }: { params: { slug: string
 
   if (!project) {
     return (
-      <div className="px-8 py-24 max-w-3xl mx-auto">
-        <p className="font-sans text-sm text-muted">Project not found.</p>
-        <Link href="/projects" className="font-sans text-sm underline mt-4 inline-block">
+      <div className="px-6 md:px-8 py-24 max-w-6xl mx-auto">
+        <p className="font-sans text-base text-muted">Project not found.</p>
+        <Link href="/projects" className="font-sans text-base underline mt-4 inline-block">
           ← Back to Projects
         </Link>
       </div>
@@ -28,38 +28,38 @@ export default async function ProjectDetail({ params }: { params: { slug: string
   }
 
   return (
-    <article className="px-8 py-16 max-w-3xl mx-auto w-full">
+    <article className="px-6 md:px-8 py-20 md:py-24 max-w-6xl mx-auto w-full">
       <Link
         href="/projects"
-        className="font-sans text-xs text-muted hover:text-foreground transition-colors mb-10 inline-block"
+        className="font-sans text-sm text-muted hover:text-foreground transition-colors mb-10 inline-block"
       >
         ← Back to Projects
       </Link>
 
-      <h1 className="font-serif text-4xl md:text-5xl mb-3">{project.name}</h1>
-      {project.subtitle && <p className="font-sans text-base text-muted mb-2">{project.subtitle}</p>}
-      {project.date && <p className="font-sans text-sm text-muted mb-6">{project.date}</p>}
-      <p className="font-sans text-sm text-muted mb-8 leading-relaxed">{project.description}</p>
+      <h1 className="font-serif text-5xl md:text-6xl mb-4">{project.name}</h1>
+      {project.subtitle && <p className="font-sans text-lg text-muted mb-2">{project.subtitle}</p>}
+      {project.date && <p className="font-sans text-base text-muted mb-6">{project.date}</p>}
+      <p className="font-sans text-base md:text-lg text-muted mb-10 leading-relaxed max-w-4xl">{project.description}</p>
 
-      <div className="flex flex-wrap gap-6 mb-10 border-y border-border py-5">
+      <div className="flex flex-wrap gap-8 mb-12 border-y border-border py-6">
         {project.role && (
           <div>
-            <p className="font-sans text-xs tracking-widest text-muted mb-1">ROLE</p>
-            <p className="font-sans text-sm">{project.role}</p>
+            <p className="font-sans text-sm tracking-widest text-muted mb-1">ROLE</p>
+            <p className="font-sans text-base">{project.role}</p>
           </div>
         )}
         {project.duration && (
           <div>
-            <p className="font-sans text-xs tracking-widest text-muted mb-1">DURATION</p>
-            <p className="font-sans text-sm">{project.duration}</p>
+            <p className="font-sans text-sm tracking-widest text-muted mb-1">DURATION</p>
+            <p className="font-sans text-base">{project.duration}</p>
           </div>
         )}
         {project.techStack && project.techStack.length > 0 && (
           <div>
-            <p className="font-sans text-xs tracking-widest text-muted mb-1">TECH STACK</p>
+            <p className="font-sans text-sm tracking-widest text-muted mb-1">TECH STACK</p>
             <div className="flex flex-wrap gap-2">
               {project.techStack.map((tech) => (
-                <span key={tech} className="font-sans text-xs px-3 py-1 rounded-full bg-pill text-pill-text">
+                <span key={tech} className="font-sans text-sm px-3 py-1.5 rounded-full bg-pill text-pill-text">
                   {tech}
                 </span>
               ))}
@@ -76,12 +76,12 @@ export default async function ProjectDetail({ params }: { params: { slug: string
 
       {project.contributions && project.contributions.length > 0 && (
         <div className="mb-10">
-          <p className="font-sans text-xs tracking-widest text-muted mb-4">MY CONTRIBUTIONS</p>
+          <p className="font-sans text-sm tracking-widest text-muted mb-4">MY CONTRIBUTIONS</p>
           <ul className="space-y-3">
             {project.contributions.map((item, i) => (
               <li key={i} className="flex items-start gap-3">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-pill-text shrink-0" />
-                <p className="font-sans text-sm leading-relaxed">{item}</p>
+                <p className="font-sans text-base md:text-lg leading-relaxed">{item}</p>
               </li>
             ))}
           </ul>
@@ -96,7 +96,7 @@ export default async function ProjectDetail({ params }: { params: { slug: string
 
       {project.images && project.images.length > 0 && (
         <div className="mb-10">
-          <p className="font-sans text-xs tracking-widest text-muted mb-4">SCREENSHOTS</p>
+          <p className="font-sans text-sm tracking-widest text-muted mb-4">SCREENSHOTS</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {project.images.map((img, i) => (
               <div key={i} className="relative aspect-video rounded-lg overflow-hidden">
@@ -118,7 +118,7 @@ export default async function ProjectDetail({ params }: { params: { slug: string
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-pill-gradient px-5 py-2 rounded-full text-xs font-sans tracking-wide hover:opacity-80 transition-opacity"
+            className="inline-block bg-pill-gradient px-6 py-3 rounded-full text-sm md:text-base font-sans tracking-wide hover:opacity-80 transition-opacity"
           >
             View Live →
           </a>
@@ -128,7 +128,7 @@ export default async function ProjectDetail({ params }: { params: { slug: string
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-5 py-2 rounded-full border border-border text-xs font-sans tracking-wide hover:opacity-60 transition-opacity"
+            className="inline-block px-6 py-3 rounded-full border border-border text-sm md:text-base font-sans tracking-wide hover:opacity-60 transition-opacity"
           >
             GitHub
           </a>

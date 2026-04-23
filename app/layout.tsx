@@ -39,8 +39,8 @@ export default function RootLayout({
     >
       <body>
         <GradientBackground />
-        <div className="min-h-screen px-2 py-2 md:px-6 md:py-4">
-          <div className="relative min-h-[calc(100vh-2rem)] md:min-h-[calc(100vh-3rem)] w-full rounded-2xl md:rounded-3xl bg-main shadow-2xl overflow-hidden ">
+        <div className="min-h-screen px-4 py-4 md:px-8 md:py-6">
+          <div className="relative min-h-[calc(100vh-2rem)] md:min-h-[calc(100vh-3rem)] w-full rounded-3xl md:rounded-[40px] bg-main shadow-2xl overflow-hidden ">
             <Navbar />
             {children}
             <Footer />

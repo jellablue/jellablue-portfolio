@@ -9,9 +9,9 @@ export default async function Projects() {
   const projects = await getProjects();
 
   return (
-    <section className="px-8 pt-16 pb-24">
-      <h2 className="font-serif text-4xl mb-10">Projects</h2>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+    <section className="mx-auto w-full max-w-6xl px-6 md:px-8 py-20 md:py-28">
+      <h2 className="font-serif text-5xl md:text-6xl mb-12">Projects</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
         {projects.map((project) => (
           <Link
             key={project._id}
@@ -28,12 +28,12 @@ export default async function Projects() {
                 />
               )}
             </div>
-            <p className="font-sans text-sm font-medium">{project.name}</p>
+            <p className="font-sans text-base md:text-lg font-medium">{project.name}</p>
             {project.subtitle && (
-              <p className="font-sans text-xs text-muted">{project.subtitle}</p>
+              <p className="font-sans text-sm text-muted">{project.subtitle}</p>
             )}
             {project.date && (
-              <p className="font-sans text-[11px] text-muted/80 mt-1">
+              <p className="font-sans text-xs md:text-sm text-muted/80 mt-1">
                 {project.date}
               </p>
             )}
