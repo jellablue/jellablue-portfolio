@@ -1,29 +1,28 @@
 export default function Contact() {
   return (
-    <main className="min-h-screen px-8 md:px-20 pt-36 pb-20 flex flex-col justify-center">
-      <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
-        Contact
-      </p>
-      <h2 className="text-5xl md:text-7xl font-bold leading-tight mb-8">
-        Let's work<br />
-        <span className="italic font-light">together</span>
+    <section className="px-8 pt-16 pb-24 max-w-2xl">
+      <h2 className="font-serif text-4xl md:text-5xl mb-5">
+        Let's work together!
       </h2>
-      <p className="text-muted-foreground max-w-sm mb-10 leading-relaxed">
-        I'm currently looking for OJT opportunities. Whether you have a question 
+      <p className="font-sans text-sm text-muted leading-relaxed max-w-xs mb-8">
+        I'm currently looking for OJT opportunities. Whether you have a question
         or just want to say hi, my inbox is always open.
       </p>
-      <div className="flex flex-col gap-3 text-sm">
-        
-         <a href="mailto:your@email.com"
-          className="w-fit px-6 py-3 rounded-full bg-foreground text-background font-medium hover:opacity-80 transition-opacity"
+      <div className="flex items-center gap-3">
+       <a 
+          href="https://github.com/yourusername"
+          target="_blank"
+          className="px-5 py-2 rounded-full bg-pill text-pill text-xs font-sans tracking-wide hover:opacity-80 transition-opacity"
         >
-          jellagonzales2005@gmail.com
+          View Github
         </a>
-        {/* <div className="flex gap-4 mt-2">
-          <a href="https://github.com/yourusername" target="_blank" className="text-muted-foreground hover:text-foreground transition-colors">GitHub</a>
-          <a href="https://linkedin.com/in/yourusername" target="_blank" className="text-muted-foreground hover:text-foreground transition-colors">LinkedIn</a>
-        </div> */}
+        <a
+          href="mailto:your@email.com"
+          className="px-5 py-2 rounded-full border border-subtle text-xs font-sans tracking-wide hover:opacity-60 transition-opacity"
+        >
+          Email me
+        </a>
       </div>
-    </main>
+    </section>
   )
 }
