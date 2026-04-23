@@ -13,16 +13,14 @@ export default function About() {
         <div className="flex-1">
           <h2 className="font-serif text-4xl mb-6">About</h2>
           <p className="font-sans text-sm text-muted leading-relaxed mb-4">
-            I'm a Computer Science student currently seeking OJT opportunities
-            in frontend development. I enjoy building things that live on the
-            web — from landing pages to full-stack applications.
+            I’m a Computer Science student and frontend enthusiast who loves creating digital homes. I thrive on building everything from cozy landing pages to complex, full-stack applications that users truly love.
           </p>
           {/* <p className="font-sans text-sm text-muted leading-relaxed mb-8">
             I care about writing clean code, creating smooth user experiences,
             and continuously improving my craft.
           </p> */}
           {Object.entries(skills).map(([category, items]) => (
-            <div key={category} className="mb-5">
+            <div key={category} className="mb-3">
               <p className="font-sans text-xs tracking-widest text-muted mb-3">
                 {category}
               </p>
