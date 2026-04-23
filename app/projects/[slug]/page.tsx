@@ -5,7 +5,8 @@ import { client } from '@/sanity/client'
 import { projectBySlugQuery, projectSlugsQuery } from '@/sanity/queries'
 import { Project } from '@/types/Project'
 
-export const revalidate = 60
+export const dynamic = 'force-dynamic'
+//export const revalidate = 60
 
 export async function generateStaticParams() {
   const slugs: { slug: string }[] = await client.fetch(projectSlugsQuery)
