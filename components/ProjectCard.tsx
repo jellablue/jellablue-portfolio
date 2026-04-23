@@ -1,6 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
-import { urlFor } from '@/sanity/client'  
 import { Project } from '@/types/Project'
 
 export default function ProjectCard({ project }: { project: Project }) {
@@ -9,7 +7,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       {project.image && (
         <div className="relative h-48 w-full overflow-hidden">
           <Image
-            src={urlFor(project.image).width(700).url()}
+            src={project.image}
             alt={project.name}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -18,6 +16,14 @@ export default function ProjectCard({ project }: { project: Project }) {
       )}
       <div className="p-6">
         <h3 className="text-lg font-semibold mb-2">{project.name}</h3>
+        {project.subtitle && (
+          <p className="text-sm text-muted-foreground mb-1">{project.subtitle}</p>
+        )}
+        {project.date && (
+          <p className="text-xs text-muted-foreground/80 mb-3">
+            {project.date}
+          </p>
+        )}
         <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
           {project.description}
         </p>
