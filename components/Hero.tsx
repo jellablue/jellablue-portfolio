@@ -7,8 +7,7 @@ export default function Hero() {
         Hi, I'm Jella!
       </h1>
       <p className="font-sans text-sm text-muted leading-relaxed max-w-sm mb-8">
-        I craft clean, performant, and accessible web interfaces using React,
-        Next.js, and modern CSS. Passionate about the intersection of design and code.
+        I sprinkle magic on React, Next.js, and CSS to build snappy, inclusive web interfaces. I'm truly obsessed with where beautiful design meets powerful, clean code.
       </p>
       <div className="flex items-center gap-3">
         <Link
@@ -20,7 +19,7 @@ export default function Hero() {
         <a
           href="/gonzales-jella-resume.pdf"
           target="_blank"
-          className="inline-block px-5 py-2 rounded-full border border-border text-xs font-sans tracking-wide hover:opacity-60 transition-opacity"
+          className="inline-block px-5 py-2 rounded-full border border-pill text-xs text-pill-text font-sans tracking-wide hover:opacity-60 transition-opacity"
         >
           Download CV
         </a>
