@@ -2,29 +2,25 @@ import Link from 'next/link'
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex flex-col justify-center px-8 md:px-20 pt-20">
-      <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-6">
-        Frontend Developer · Available for OJT
-      </p>
-      <h1 className="text-6xl md:text-8xl font-bold leading-[0.95] tracking-tight mb-8">
-        Hi, I'm<br />
-        <span className="italic font-light">Jella</span>
+    <section className="px-8 max-w-2xl">
+      <h1 className="font-serif text-4xl md:text-5xl mb-5">
+        Hi, I'm Jella!
       </h1>
-      <p className="text-base text-muted-foreground max-w-md mb-10 leading-relaxed">
-        I craft clean, performant, and accessible web interfaces using React, 
+      <p className="font-sans text-sm text-muted leading-relaxed max-w-sm mb-8">
+        I craft clean, performant, and accessible web interfaces using React,
         Next.js, and modern CSS. Passionate about the intersection of design and code.
       </p>
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-3">
         <Link
           href="/projects"
-          className="px-6 py-3 rounded-full bg-foreground text-background text-sm font-medium hover:opacity-80 transition-opacity"
+          className="inline-block px-5 py-2 rounded-full bg-pill-gradient text-main text-xs font-sans tracking-wide hover:opacity-80 transition-opacity"
         >
           View Projects
         </Link>
-        
-        <a  href="/gonzales-jella-resume.pdf"
+        <a
+          href="/gonzales-jella-resume.pdf"
           target="_blank"
-          className="px-6 py-3 rounded-full border border-foreground/20 text-sm hover:border-foreground/50 transition-colors"
+          className="inline-block px-5 py-2 rounded-full border border-border text-xs font-sans tracking-wide hover:opacity-60 transition-opacity"
         >
           Download CV
         </a>
