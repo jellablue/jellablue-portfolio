@@ -7,7 +7,13 @@ export type Project = {
     description: string;
     subtitle?: string;
     date?: string;
+    role?: string;
+    duration?: string;
+    contributions?: string[];
+    detailedContributions?: string;
     image?: string;
+    images?: any[];
+    body?: any[];
     techStack?: string[]; //PortableTextBlock[]; //how sanity stores rich texts
     liveUrl?: string;
     githubUrl?: string;

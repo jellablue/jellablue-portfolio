@@ -36,10 +36,24 @@ export const projectBySlugQuery = `
     description,
     subtitle,
     date,
+    role,
+    duration,
+    contributions,
+    detailedContributions,
     "image": image.asset->url,
+    "images": images[]{
+      "url": asset->url,
+      alt
+    },
+    body,
     techStack,
     liveUrl,
     githubUrl,
     featured,
     order
   } `
+
+
+  export const projectSlugsQuery = `
+  *[_type == "project"]{ "slug": slug.current }
+`

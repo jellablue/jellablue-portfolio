@@ -1,5 +1,6 @@
 import { getProjects } from '@/sanity/queries'
 import Image from 'next/image';
+import Link from 'next/link';
 
 
 export const revalidate = 60
@@ -12,7 +13,11 @@ export default async function Projects() {
       <h2 className="font-serif text-4xl mb-10">Projects</h2>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
         {projects.map((project) => (
-          <div key={project._id} className="group cursor-pointer">
+          <Link
+            key={project._id}
+            href={`/projects/${project.slug}`}
+            className="group cursor-pointer block"
+          >
             <div className="relative w-full aspect-square rounded-lg overflow-hidden mb-3">
               {project.image && (
                 <Image
@@ -32,8 +37,8 @@ export default async function Projects() {
                 {project.date}
               </p>
             )}
-            <p className="font-sans text-xs text-muted mt-1">{project.description}</p>
-          </div>
+            {/* <p className="font-sans text-xs text-muted mt-1">{project.description}</p> */}
+          </Link>
         ))}
       </div>
     </section>

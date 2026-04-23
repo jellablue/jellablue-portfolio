@@ -31,6 +31,29 @@ const project = {
       type: "string",
     },
     {
+      name: "role",
+      title: "Role",
+      type: "string",
+    },
+    {
+      name: "duration",
+      title: "Duration",
+      type: "string",
+    },
+    {
+      name: "contributions",
+      title: "Contributions",
+      type: "array",
+      of: [{ type: "string" }],
+    },
+    {
+      name: "detailedContributions",
+      title: "Detailed Contributions",
+      description: "One contribution per line. These are rendered as bullet points on the project details page.",
+      type: "text",
+      rows: 8,
+    },
+    {
       name: "image",
       title: "Image",
       type: "image",
@@ -42,6 +65,30 @@ const project = {
           type: "string",
         },
       ],
+    },
+    {
+      name: "images",
+      title: "Detail Images",
+      type: "array",
+      of: [
+        {
+          type: "image",
+          options: { hotspot: true },
+          fields: [
+            {
+              name: "alt",
+              title: "Alt",
+              type: "string",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "body",
+      title: "Body",
+      type: "array",
+      of: [{ type: "block" }],
     },
     {   
         name: 'techStack',
