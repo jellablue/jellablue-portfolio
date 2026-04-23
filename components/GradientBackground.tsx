@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion'
 
 // Gradient stops per scroll section
 const GRADIENT_STAGES = [
@@ -49,11 +48,11 @@ function lerpColor(colorA: string, colorB: string, t: number): string {
 
 export default function GradientBackground() {
   const [gradient, setGradient] = useState(GRADIENT_STAGES[0])
-  const rafRef = useRef<number>()
+  const rafRef = useRef<number | null>(null)
 
   useEffect(() => {
     const handleScroll = () => {
-      if (rafRef.current) cancelAnimationFrame(rafRef.current)
+      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current)
 
       rafRef.current = requestAnimationFrame(() => {
         const scrollY = window.scrollY
@@ -81,7 +80,7 @@ export default function GradientBackground() {
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => {
       window.removeEventListener('scroll', handleScroll)
-      if (rafRef.current) cancelAnimationFrame(rafRef.current)
+      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current)
     }
   }, [])
 

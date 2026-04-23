@@ -12,9 +12,8 @@ export async function generateStaticParams() {
   return slugs.map(({ slug }) => ({ slug }))
 }
 
-export default async function ProjectDetail({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params
-  const project: Project = await client.fetch(projectBySlugQuery, { slug })
+export default async function ProjectDetail({ params }: { params: { slug: string } }) {
+  const project: Project = await client.fetch(projectBySlugQuery, { slug: params.slug })
 
   if (!project) {
     return (
@@ -26,16 +25,6 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
       </div>
     )
   }
-
-  const detailedContributionItems = project.detailedContributions
-    ?.split(/\r?\n/)
-    .map((line) => line.replace(/^[-*•]\s*/, '').trim())
-    .filter(Boolean)
-
-  const contributionItems =
-    detailedContributionItems && detailedContributionItems.length > 0
-      ? detailedContributionItems
-      : project.contributions
 
   return (
     <article className="px-8 py-16 max-w-3xl mx-auto w-full">
@@ -84,11 +73,11 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
         </div>
       )}
 
-      {contributionItems && contributionItems.length > 0 && (
+      {project.contributions && project.contributions.length > 0 && (
         <div className="mb-10">
           <p className="font-sans text-xs tracking-widest text-muted mb-4">MY CONTRIBUTIONS</p>
           <ul className="space-y-3">
-            {contributionItems.map((item, i) => (
+            {project.contributions.map((item, i) => (
               <li key={i} className="flex items-start gap-3">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-pill-text shrink-0" />
                 <p className="font-sans text-sm leading-relaxed">{item}</p>

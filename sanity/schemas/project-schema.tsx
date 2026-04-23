@@ -47,13 +47,6 @@ const project = {
       of: [{ type: "string" }],
     },
     {
-      name: "detailedContributions",
-      title: "Detailed Contributions",
-      description: "One contribution per line. These are rendered as bullet points on the project details page.",
-      type: "text",
-      rows: 8,
-    },
-    {
       name: "image",
       title: "Image",
       type: "image",

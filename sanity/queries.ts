@@ -39,7 +39,6 @@ export const projectBySlugQuery = `
     role,
     duration,
     contributions,
-    detailedContributions,
     "image": image.asset->url,
     "images": images[]{
       "url": asset->url,

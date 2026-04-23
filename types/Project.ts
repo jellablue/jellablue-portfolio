@@ -10,7 +10,6 @@ export type Project = {
     role?: string;
     duration?: string;
     contributions?: string[];
-    detailedContributions?: string;
     image?: string;
     images?: any[];
     body?: any[];
