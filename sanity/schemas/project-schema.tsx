@@ -1,5 +1,3 @@
-import { title } from "process";
-
 const project = {
   name: "project",
   title: "Projects",
@@ -21,6 +19,16 @@ const project = {
         name: 'description',
         title: "Short Description",
         type: 'text',
+    },
+    {
+      name: "subtitle",
+      title: "Subtitle",
+      type: "string",
+    },
+    {
+      name: "date",
+      title: "Date",
+      type: "string",
     },
     {
       name: "image",

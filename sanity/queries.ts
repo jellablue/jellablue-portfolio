@@ -15,11 +15,14 @@ export async function getProjects(): Promise<Project[]> {
             name,
             "slug": slug.current,
             description,
+            subtitle,
+            date,
             "image": image.asset->url,
             techStack,
             liveUrl,
             githubUrl, 
             featured,
+            order,
         }`
     );
 
@@ -28,10 +31,15 @@ export async function getProjects(): Promise<Project[]> {
 export const projectBySlugQuery = `
   *[_type == "project" && slug.current == $slug][0] {
     _id,
-    title,
+    name,
+    "slug": slug.current,
     description,
-    thumbnail,
+    subtitle,
+    date,
+    "image": image.asset->url,
     techStack,
     liveUrl,
-    githubUrl
+    githubUrl,
+    featured,
+    order
   } `

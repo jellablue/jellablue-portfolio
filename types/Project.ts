@@ -1,5 +1,3 @@
-import { PortableTextBlock } from "sanity";
-
 export type Project = {
 
     _id: string;
@@ -7,6 +5,8 @@ export type Project = {
     name: string;
     slug: string;
     description: string;
+    subtitle?: string;
+    date?: string;
     image?: string;
     techStack?: string[]; //PortableTextBlock[]; //how sanity stores rich texts
     liveUrl?: string;
