@@ -1,4 +1,4 @@
-import { client, urlFor } from '@/sanity/client'
+import { client } from '@/sanity/client'
 import { projectBySlugQuery } from '@/sanity/queries'
 import Image from 'next/image'
 
@@ -11,13 +11,21 @@ export default async function ProjectDetail({ params }: { params: { slug: string
 
   return (
     <main className="min-h-screen px-8 md:px-20 pt-36 pb-20 max-w-4xl">
-      <h1 className="text-5xl font-bold mb-4">{project.title}</h1>
+      <h1 className="text-5xl font-bold mb-3">{project.name}</h1>
+      {project.subtitle && (
+        <p className="text-lg text-muted-foreground mb-3">{project.subtitle}</p>
+      )}
+      {project.date && (
+        <p className="text-sm text-muted-foreground/80 mb-6">
+          {project.date}
+        </p>
+      )}
       <p className="text-muted-foreground mb-8 leading-relaxed">{project.description}</p>
-      {project.thumbnail && (
+      {project.image && (
         <div className="relative w-full h-96 rounded-2xl overflow-hidden mb-8">
           <Image
-            src={urlFor(project.thumbnail).width(1200).url()}
-            alt={project.title}
+            src={project.image}
+            alt={project.name}
             fill
             className="object-cover"
           />
