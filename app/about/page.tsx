@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Reveal from '@/components/Reveal'
 
 const skills = {
   frontend: ['React', 'Next.js', 'TailwindCSS', 'Typescript', 'JavaScript', 'p5.js'],
@@ -11,16 +12,20 @@ export default function About() {
     <section className="mx-auto w-full max-w-6xl px-6 md:px-8 py-20 md:py-28">
       <div className="mx-auto flex flex-col md:flex-row md:items-center gap-14 lg:gap-20 max-w-5xl">
         <div className="flex-1">
-          <h2 className="font-serif text-5xl md:text-6xl mb-7">About</h2>
-          <p className="font-sans text-base md:text-lg text-muted leading-relaxed mb-5 max-w-2xl">
-            I’m a Computer Science student and frontend enthusiast who loves creating digital homes. I thrive on building everything from cozy landing pages to complex, full-stack applications that users truly love.
-          </p>
+          <Reveal delay={0.1}>
+            <h2 className="font-serif text-5xl md:text-6xl mb-7">About</h2>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <p className="font-sans text-base md:text-lg text-muted leading-relaxed mb-5 max-w-2xl">
+              I’m a Computer Science student and frontend enthusiast who loves creating digital homes. I thrive on building everything from cozy landing pages to complex, full-stack applications that users truly love.
+            </p>
+          </Reveal>
           {/* <p className="font-sans text-sm text-muted leading-relaxed mb-8">
             I care about writing clean code, creating smooth user experiences,
             and continuously improving my craft.
           </p> */}
-          {Object.entries(skills).map(([category, items]) => (
-            <div key={category} className="mb-3">
+          {Object.entries(skills).map(([category, items], index) => (
+            <Reveal key={category} className="mb-3" delay={0.25 + index * 0.08}>
               <p className="font-sans text-sm tracking-widest text-muted mb-3 uppercase">
                 {category}
               </p>
@@ -31,13 +36,15 @@ export default function About() {
                   </span>
                 ))}
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
         {/* Photo */}
-        <div className="w-52 h-72 md:w-64 md:h-80 relative rounded-xl overflow-hidden shrink-0">
-          <Image src="/photo.jpg" alt="Jella" fill className="object-cover" />
-        </div>
+        <Reveal delay={0.3}>
+          <div className="w-52 h-72 md:w-64 md:h-80 relative rounded-xl overflow-hidden shrink-0">
+            <Image src="/photo.jpg" alt="Jella" fill className="object-cover" />
+          </div>
+        </Reveal>
       </div>
     </section>
   )

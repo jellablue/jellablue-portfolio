@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import About from "./about/page";
 import Projects from "./projects/page";
 import Contact from "./contact/page";
+import Achievements from "./achievements/page";
 
 export default async function Home() {
 
@@ -20,6 +21,11 @@ export default async function Home() {
       {/* Projects */}
        <section id="projects" className="scroll-mt-24">
         <Projects/>
+      </section>
+
+      {/* Achievements */}
+       <section id="projects" className="scroll-mt-24">
+        <Achievements/>
       </section>
       
       {/* Contact */}

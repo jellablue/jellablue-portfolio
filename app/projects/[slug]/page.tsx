@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { client } from '@/sanity/client'
 import { projectBySlugQuery, projectSlugsQuery } from '@/sanity/queries'
 import { Project } from '@/types/Project'
+import Reveal from '@/components/Reveal'
 
 export const dynamic = 'force-dynamic'
 //export const revalidate = 60
@@ -32,19 +33,34 @@ const { slug } = await Promise.resolve(params)
 
   return (
     <article className="px-6 md:px-8 py-20 md:py-24 max-w-6xl mx-auto w-full">
-      <Link
-        href="/projects"
-        className="font-sans text-sm text-muted hover:text-foreground transition-colors mb-10 inline-block"
-      >
-        ← Back to Projects
-      </Link>
+      <Reveal delay={0.05}>
+        <Link
+          href="/projects"
+          className="font-sans text-sm text-muted hover:text-foreground transition-colors mb-10 inline-block"
+        >
+          ← Back to Projects
+        </Link>
+      </Reveal>
 
-      <h1 className="font-serif text-5xl md:text-6xl mb-4">{project.name}</h1>
-      {project.subtitle && <p className="font-sans text-lg text-muted mb-2">{project.subtitle}</p>}
-      {project.date && <p className="font-sans text-base text-muted mb-6">{project.date}</p>}
-      <p className="font-sans text-base md:text-lg text-muted mb-10 leading-relaxed max-w-4xl">{project.description}</p>
+      <Reveal delay={0.1}>
+        <h1 className="font-serif text-5xl md:text-6xl mb-4">{project.name}</h1>
+      </Reveal>
+      {project.subtitle && (
+        <Reveal delay={0.15}>
+          <p className="font-sans text-lg text-muted mb-2">{project.subtitle}</p>
+        </Reveal>
+      )}
+      {project.date && (
+        <Reveal delay={0.2}>
+          <p className="font-sans text-base text-muted mb-6">{project.date}</p>
+        </Reveal>
+      )}
+      <Reveal delay={0.25}>
+        <p className="font-sans text-base md:text-lg text-muted mb-10 leading-relaxed max-w-4xl">{project.description}</p>
+      </Reveal>
 
-      <div className="flex flex-wrap gap-10 mb-12 border-y border-border py-6">
+      <Reveal delay={0.3}>
+        <div className="flex flex-wrap gap-10 mb-12 border-y border-border py-6">
         {project.role && (
           <div>
             <p className="font-sans text-sm tracking-widest text-muted mb-1">ROLE</p>
@@ -69,55 +85,65 @@ const { slug } = await Promise.resolve(params)
             </div>
           </div>
         )}
-      </div>
+        </div>
+      </Reveal>
 
       {project.image && (
-        <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-10">
-          <Image src={project.image} alt={project.name} fill className="object-cover" />
-        </div>
+        <Reveal delay={0.35}>
+          <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-10">
+            <Image src={project.image} alt={project.name} fill className="object-cover" />
+          </div>
+        </Reveal>
       )}
 
       {project.contributions && project.contributions.length > 0 && (
-        <div className="mb-10">
-          <p className="font-sans text-sm tracking-widest text-muted mb-4">MY CONTRIBUTIONS</p>
-          <ul className="space-y-3">
-            {project.contributions.map((item, i) => (
-              <li key={i} className="flex items-start gap-3">
-                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-pill shrink-0" />
-                <p className="font-sans text-base md:text-lg leading-relaxed">{item}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <Reveal delay={0.4}>
+          <div className="mb-10">
+            <p className="font-sans text-sm tracking-widest text-muted mb-4">MY CONTRIBUTIONS</p>
+            <ul className="space-y-3">
+              {project.contributions.map((item, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-pill shrink-0" />
+                  <p className="font-sans text-base md:text-lg leading-relaxed">{item}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
       )}
 
       {project.body && project.body.length > 0 && (
-        <div className="prose prose-sm max-w-none font-sans mb-10">
-          <PortableText value={project.body} />
-        </div>
+        <Reveal delay={0.45}>
+          <div className="prose prose-sm max-w-none font-sans mb-10">
+            <PortableText value={project.body} />
+          </div>
+        </Reveal>
       )}
 
       {project.images && project.images.length > 0 && (
-        <div className="mb-10">
-          <p className="font-sans text-sm tracking-widest text-muted mb-4">SCREENSHOTS</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {project.images
-              .filter((img) => img?.url)
-              .map((img, i) => (
-                <div key={i} className="relative aspect-video rounded-lg overflow-hidden">
-                  <Image
-                    src={img.url}
-                    alt={img?.alt || `${project.name} screenshot ${i + 1}`}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              ))}
+        <Reveal delay={0.5}>
+          <div className="mb-10">
+            <p className="font-sans text-sm tracking-widest text-muted mb-4">SCREENSHOTS</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {project.images
+                .filter((img) => img?.url)
+                .map((img, i) => (
+                  <div key={i} className="relative aspect-video rounded-lg overflow-hidden">
+                    <Image
+                      src={img.url}
+                      alt={img?.alt || `${project.name} screenshot ${i + 1}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                ))}
+            </div>
           </div>
-        </div>
+        </Reveal>
       )}
 
-      <div className="flex gap-3 pt-4">
+      <Reveal delay={0.55}>
+        <div className="flex gap-3 pt-4">
         {project.liveUrl && (
           <a
             href={project.liveUrl}
@@ -138,7 +164,8 @@ const { slug } = await Promise.resolve(params)
             GitHub
           </a>
         )}
-      </div>
+        </div>
+      </Reveal>
     </article>
   )
 }
