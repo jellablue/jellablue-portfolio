@@ -4,11 +4,11 @@
 @theme inline {
 
   /* Colors */
-  --color-background:  #f5f3ee;   /* warm off-white — your container bg */
+  --color-background:  #f5f3ee;   /* warm off-white  */
   --color-foreground:  #1a1a1a;   /* near-black text */
   --color-muted:       #888880;   /* secondary/body text */
   --color-border:      #e5e2da;   /* subtle dividers */
-  --color-pill:        #e8e4f0;   /* lavender badge bg */
+  --color-pill:        #a8c4e8;   /* lavender badge bg */
   --color-pill-text:   #5a5470;   /* badge text */
   --color-main:        #FCFCF7;   /* your original off-white, kept */
   --color-pill-gradient: linear-gradient(135deg, #a8c4e8, #c9b8e8);

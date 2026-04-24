@@ -13,7 +13,7 @@ export default function Hero() {
         <div className="flex flex-wrap items-center gap-4">
           <Link
             href="/projects"
-            className="inline-block px-6 py-3 rounded-full bg-pill-gradient text-main text-sm md:text-base font-sans tracking-wide hover:opacity-80 transition-opacity"
+            className="inline-block px-6 py-3 rounded-full bg-pill text-background text-sm md:text-base font-sans tracking-wide hover:opacity-80 transition-opacity"
           >
             View Projects
           </Link>

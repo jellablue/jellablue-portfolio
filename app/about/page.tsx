@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
 const skills = {
-  frontend: ['React.js', 'Next.js', 'TailwindCSS', 'Typescript', 'JavaScript'],
+  frontend: ['React', 'Next.js', 'TailwindCSS', 'Typescript', 'JavaScript', 'p5.js'],
   backend: ['Laravel', 'Node.js', 'Express.js', 'C#'],
   tools:    ['Git', 'Figma', 'Sanity Studio'],
 }
@@ -26,7 +26,7 @@ export default function About() {
               </p>
               <div className="flex flex-wrap gap-2">
                 {items.map((skill) => (
-                  <span key={skill} className="font-sans text-sm px-4 py-1.5 rounded-full bg-pill-gradient text-main">
+                  <span key={skill} className="font-sans text-sm px-4 py-1.5 rounded-full border border-pill bg-main text-pill hover:bg-pill hover:text-background hover:transition-colors">
                     {skill}
                   </span>
                 ))}

@@ -10,14 +10,14 @@ export default function Contact() {
         </p>
         <div className="flex flex-wrap items-center gap-4">
          <a 
-            href="https://github.com/yourusername"
+            href="https://github.com/jellablue"
             target="_blank"
-            className="px-6 py-3 rounded-full bg-pill-gradient text-main text-sm md:text-base font-sans tracking-wide hover:opacity-80 transition-opacity"
+            className="px-6 py-3 rounded-full bg-pill text-background text-sm md:text-base font-sans tracking-wide hover:opacity-80 transition-opacity"
           >
             View Github
           </a>
           <a
-            href="mailto:your@email.com"
+            href="mailto:jellagonzales2005@email.com"
             className="px-6 py-3 rounded-full border border-pill border-subtle text-pill-text text-sm md:text-base font-sans tracking-wide hover:opacity-60 transition-opacity"
           >
             Email me
