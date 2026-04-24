@@ -6,13 +6,15 @@ import { projectBySlugQuery, projectSlugsQuery } from '@/sanity/queries'
 import { Project } from '@/types/Project'
 
 export const dynamic = 'force-dynamic'
-export const revalidate = 60
+//export const revalidate = 60
 
 export default async function ProjectDetail({ params }: { params: { slug: string } }) {
   let project: Project | null = null
 
   try {
     project = await client.fetch(projectBySlugQuery, { slug: params.slug })
+    console.log('slug received:', params.slug)
+    console.log('Fetched project:', project)
   } catch (err) {
     console.error('Failed to fetch project:', err)
   }

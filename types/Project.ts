@@ -3,7 +3,7 @@ export type Project = {
     _id: string;
     _createdAt: Date;
     name: string;
-    slug: string;
+    slug: { current: string };
     description: string;
     subtitle?: string;
     date?: string;
@@ -11,7 +11,7 @@ export type Project = {
     duration?: string;
     contributions?: string[];
     image?: string;
-    images?: any[];
+    images?: { url: string; alt?: string }[];
     body?: any[];
     techStack?: string[]; //PortableTextBlock[]; //how sanity stores rich texts
     liveUrl?: string;
