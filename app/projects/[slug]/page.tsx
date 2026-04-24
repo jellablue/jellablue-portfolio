@@ -8,12 +8,13 @@ import { Project } from '@/types/Project'
 export const dynamic = 'force-dynamic'
 //export const revalidate = 60
 
-export default async function ProjectDetail({ params }: { params: { slug: string } }) {
+export default async function ProjectDetail({ params }: { params: Promise<{ slug: string }> }) {
   let project: Project | null = null
+const { slug } = await Promise.resolve(params)
 
   try {
-    project = await client.fetch(projectBySlugQuery, { slug: params.slug })
-    console.log('slug received:', params.slug)
+    project = await client.fetch(projectBySlugQuery, { slug })
+    console.log('slug received:', slug)
     console.log('Fetched project:', project)
   } catch (err) {
     console.error('Failed to fetch project:', err)
@@ -43,7 +44,7 @@ export default async function ProjectDetail({ params }: { params: { slug: string
       {project.date && <p className="font-sans text-base text-muted mb-6">{project.date}</p>}
       <p className="font-sans text-base md:text-lg text-muted mb-10 leading-relaxed max-w-4xl">{project.description}</p>
 
-      <div className="flex flex-wrap gap-8 mb-12 border-y border-border py-6">
+      <div className="flex flex-wrap gap-10 mb-12 border-y border-border py-6">
         {project.role && (
           <div>
             <p className="font-sans text-sm tracking-widest text-muted mb-1">ROLE</p>
@@ -61,7 +62,7 @@ export default async function ProjectDetail({ params }: { params: { slug: string
             <p className="font-sans text-sm tracking-widest text-muted mb-1">TECH STACK</p>
             <div className="flex flex-wrap gap-2">
               {project.techStack.map((tech) => (
-                <span key={tech} className="font-sans text-sm px-3 py-1.5 rounded-full bg-pill text-pill-text">
+                <span key={tech} className="font-sans text-sm px-3 py-1.5 rounded-full border border-pill bg-main text-pill hover:bg-pill hover:text-background hover:transition-colors">
                   {tech}
                 </span>
               ))}
@@ -82,7 +83,7 @@ export default async function ProjectDetail({ params }: { params: { slug: string
           <ul className="space-y-3">
             {project.contributions.map((item, i) => (
               <li key={i} className="flex items-start gap-3">
-                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-pill-text shrink-0" />
+                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-pill shrink-0" />
                 <p className="font-sans text-base md:text-lg leading-relaxed">{item}</p>
               </li>
             ))}
@@ -122,7 +123,7 @@ export default async function ProjectDetail({ params }: { params: { slug: string
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-pill-gradient px-6 py-3 rounded-full text-sm md:text-base font-sans tracking-wide hover:opacity-80 transition-opacity"
+            className="inline-block bg-pill text-background px-6 py-3 rounded-full text-sm md:text-base font-sans tracking-wide hover:opacity-80 transition-opacity"
           >
             View Live →
           </a>
@@ -132,7 +133,7 @@ export default async function ProjectDetail({ params }: { params: { slug: string
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-6 py-3 rounded-full border border-border text-sm md:text-base font-sans tracking-wide hover:opacity-60 transition-opacity"
+            className="inline-block px-6 py-3 rounded-full border border-pill text-sm md:text-base font-sans tracking-wide hover:opacity-60 transition-opacity"
           >
             GitHub
           </a>
