@@ -6,16 +6,16 @@ import { projectBySlugQuery, projectSlugsQuery } from '@/sanity/queries'
 import { Project } from '@/types/Project'
 
 export const dynamic = 'force-dynamic'
-//export const revalidate = 60
-
-export async function generateStaticParams() {
-  const slugs: { slug: string }[] = await client.fetch(projectSlugsQuery)
-  return slugs.map(({ slug }) => ({ slug }))
-}
+export const revalidate = 60
 
 export default async function ProjectDetail({ params }: { params: { slug: string } }) {
-  const project: Project = await client.fetch(projectBySlugQuery, { slug: params.slug })
+  let project: Project | null = null
 
+  try {
+    project = await client.fetch(projectBySlugQuery, { slug: params.slug })
+  } catch (err) {
+    console.error('Failed to fetch project:', err)
+  }
   if (!project) {
     return (
       <div className="px-6 md:px-8 py-24 max-w-6xl mx-auto">
@@ -98,16 +98,18 @@ export default async function ProjectDetail({ params }: { params: { slug: string
         <div className="mb-10">
           <p className="font-sans text-sm tracking-widest text-muted mb-4">SCREENSHOTS</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {project.images.map((img, i) => (
-              <div key={i} className="relative aspect-video rounded-lg overflow-hidden">
-                <Image
-                  src={img?.url}
-                  alt={img?.alt || `${project.name} screenshot ${i + 1}`}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            ))}
+            {project.images
+              .filter((img) => img?.url)
+              .map((img, i) => (
+                <div key={i} className="relative aspect-video rounded-lg overflow-hidden">
+                  <Image
+                    src={img.url}
+                    alt={img?.alt || `${project.name} screenshot ${i + 1}`}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              ))}
           </div>
         </div>
       )}
