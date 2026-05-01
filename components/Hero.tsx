@@ -6,7 +6,7 @@ export default function Hero() {
     <section className="mx-auto w-full max-w-6xl px-6 md:px-6 py-20 md:py-28">
       
       <div className="mx-auto w-full max-w-xl">
-        <Reveal delay={0.2}>
+        <Reveal delay={0.2} repeat>
         <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl leading-tight mb-6">
           Hi, I'm Jella!
         </h1>
