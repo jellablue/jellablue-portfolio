@@ -5,12 +5,14 @@ export default function Reveal({
   children,
   className,
   delay = 0,
+  repeat = false,
 }: {
   children: React.ReactNode
   className?: string
   delay?: number
+  repeat?: boolean
 }) {
-  const ref = useReveal(delay)
+  const ref = useReveal(delay, repeat)
 
   return (
     <div ref={ref} className={className}>
