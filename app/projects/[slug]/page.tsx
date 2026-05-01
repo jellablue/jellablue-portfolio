@@ -1,5 +1,4 @@
 import { PortableText } from '@portabletext/react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { client } from '@/sanity/client'
 import { projectBySlugQuery, projectSlugsQuery } from '@/sanity/queries'
@@ -90,8 +89,12 @@ const { slug } = await Promise.resolve(params)
 
       {project.image && (
         <Reveal delay={0.35}>
-          <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-10">
-            <Image src={project.image} alt={project.name} fill className="object-cover" />
+          <div className="w-full rounded-xl overflow-hidden mb-10">
+            <img
+              src={project.image}
+              alt={project.name}
+              className="w-full h-auto object-contain"
+            />
           </div>
         </Reveal>
       )}
@@ -124,19 +127,18 @@ const { slug } = await Promise.resolve(params)
         <Reveal delay={0.5}>
           <div className="mb-10">
             <p className="font-sans text-sm tracking-widest text-muted mb-4">SCREENSHOTS</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="columns-1 md:columns-2 gap-4">
               {project.images
-                .filter((img) => img?.url)
-                .map((img, i) => (
-                  <div key={i} className="relative aspect-video rounded-lg overflow-hidden">
-                    <Image
-                      src={img.url}
-                      alt={img?.alt || `${project.name} screenshot ${i + 1}`}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                ))}
+                  .filter((img) => img?.url)
+                  .map((img, i) => (
+                  <div key={i} className="mb-4 break-inside-avoid rounded-lg overflow-hidden">
+                      <img
+                        src={img.url}
+                        alt={img?.alt || `${project.name} screenshot ${i + 1}`}
+                        className="w-full h-auto object-contain rounded-lg"
+                      />
+                    </div>
+                  ))}
             </div>
           </div>
         </Reveal>

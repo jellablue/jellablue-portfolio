@@ -4,7 +4,7 @@ import Reveal from '@/components/Reveal'
 const skills = {
   frontend: ['React', 'Next.js', 'TailwindCSS', 'Typescript', 'JavaScript', 'p5.js'],
   backend: ['Laravel', 'Node.js', 'Express.js', 'C#'],
-  tools:    ['Git', 'Figma', 'Sanity Studio'],
+  tools:    ['Git', 'Figma', 'Sanity Studio', 'Framer Motion'],
 }
 
 export default function About() {

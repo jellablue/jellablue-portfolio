@@ -1,5 +1,4 @@
 import { PortableText } from '@portabletext/react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { client } from '@/sanity/client'
 import { achievementBySlugQuery, achievementSlugsQuery } from '@/sanity/queries'
@@ -58,8 +57,12 @@ const { slug } = await Promise.resolve(params)
 
       {feat.thumbnail && (
         <Reveal delay={0.25}>
-          <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-10">
-            <Image src={feat.thumbnail.url} alt={feat.thumbnail.alt || feat.title} fill className="object-cover" />
+          <div className="w-full rounded-xl overflow-hidden mb-10">
+            <img
+              src={feat.thumbnail.url}
+              alt={feat.thumbnail.alt || feat.title}
+              className="w-full h-auto object-contain"
+            />
           </div>
         </Reveal>
       )}
@@ -84,19 +87,18 @@ const { slug } = await Promise.resolve(params)
         <Reveal delay={0.35}>
           <div className="mb-10">
             <p className="font-sans text-sm tracking-widest text-muted mb-4">SCREENSHOTS</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="columns-1 md:columns-2 gap-4">
               {feat.images
-                .filter((img) => img?.url)
-                .map((img, i) => (
-                  <div key={i} className="relative aspect-video rounded-lg overflow-hidden">
-                    <Image
-                      src={img.url}
-                      alt={img?.alt || `${feat.title} screenshot ${i + 1}`}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                ))}
+                  .filter((img) => img?.url)
+                  .map((img, i) => (
+                  <div key={i} className="mb-4 break-inside-avoid rounded-lg overflow-hidden">
+                      <img
+                        src={img.url}
+                        alt={img?.alt || `${feat.title} screenshot ${i + 1}`}
+                        className="w-full h-auto object-contain rounded-lg"
+                      />
+                    </div>
+                  ))}
             </div>
           </div>
         </Reveal>
