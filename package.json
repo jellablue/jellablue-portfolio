@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@n8n/chat": "^1.19.0",
     "@portabletext/react": "^6.0.3",
     "framer-motion": "^12.38.0",
     "gsap": "^3.15.0",

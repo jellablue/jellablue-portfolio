@@ -4,6 +4,7 @@ import "./globals.css";
 import GradientBackground from "@/components/GradientBackground";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ChatWidget from "@/components/ChatWidget";
 
 const sacramento = Sacramento({
   weight: '400',
@@ -43,6 +44,7 @@ export default function RootLayout({
           <div className="relative min-h-[calc(100vh-2rem)] md:min-h-[calc(100vh-3rem)] w-full rounded-3xl md:rounded-[40px] bg-main shadow-2xl overflow-hidden ">
             <Navbar />
             {children}
+            <ChatWidget />
             <Footer />
           </div>
         </div>
