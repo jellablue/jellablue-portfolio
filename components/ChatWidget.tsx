@@ -16,15 +16,15 @@ export default function ChatWidget() {
                 showWelcomeScreen: true,
                 initialMessages: [
                     'Hi! I am Blu!',
-                    'Ask me anything to know about Jella!'
+                    'What do you want to know about Jella today?'
                 ],
                 i18n: {
                     en: {
                         title: 'Jella\'s Blu',
-                        subtitle: 'Ask me anything about Jella!',
+                        subtitle: 'Ask me questions to get to know Jella!',
                         inputPlaceholder: 'Type your question',
                         footer: "",
-                        getStarted: "Start Chat",
+                        getStarted: "Cha",
                         closeButtonTooltip: 'Close Chat',
                     }
                 }
